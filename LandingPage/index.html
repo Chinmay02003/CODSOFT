@@ -6,12 +6,10 @@
     <title>Creative Digital Agency - Landing Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header Section -->
     <header class="header">
         <div class="top-bar">
             <div class="container top-bar-content">
@@ -50,7 +48,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container hero-content">
             <p class="tagline">WE ARE CREATIVE</p>
@@ -63,7 +60,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features-section">
         <div class="container features-grid">
             <div class="feature-item">
@@ -84,7 +80,6 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
     <section class="about-section">
         <div class="container about-content">
             <div class="about-text">
@@ -94,42 +89,55 @@
                 <button class="btn btn-secondary">READ MORE</button>
             </div>
             <div class="about-image">
-                <img src="https://placehold.co/600x400/e2e8f0/334155?text=About+Us+Image" alt="About Us Image">
+                <img src="https://placehold.co/600x400/8d8d8d/ffffff?text=Team+Collaboration" alt="Image of people collaborating in an office setting.">
             </div>
         </div>
     </section>
 
-    <!-- Our Services Section -->
+    <section class="testimonial-section">
+        <div class="container testimonial-content">
+            <p class="testimonial-quote">"Their creativity and dedication transformed our online presence. Highly recommended!"</p>
+            <p class="testimonial-author">- Jane Doe, CEO of TechCorp</p>
+        </div>
+    </section>
+
     <section class="services-section">
         <div class="container">
             <h2>OUR SERVICES</h2>
             <div class="services-grid">
                 <div class="service-item">
-                    <img src="https://placehold.co/300x200/dbeafe/1f2937?text=Service+1" alt="Service 1">
+                    <img src="https://placehold.co/300x200/9e9e9e/ffffff?text=UX+Design+Mockup" alt="Mockup of a user experience design on a screen.">
                     <div class="service-details">
                         <div class="service-icon-small"><i class="fas fa-users"></i></div>
                         <h4>USER EXPERIENCE</h4>
                     </div>
                 </div>
                 <div class="service-item">
-                    <img src="https://placehold.co/300x200/dbeafe/1f2937?text=Service+2" alt="Service 2">
+                    <img src="https://placehold.co/300x200/a7a7a7/ffffff?text=Creative+Design+Process" alt="Abstract image representing creative design, perhaps with colors and shapes.">
                     <div class="service-details">
                         <div class="service-icon-small"><i class="fas fa-paint-brush"></i></div>
                         <h4>CREATIVE DESIGN</h4>
                     </div>
                 </div>
                 <div class="service-item">
-                    <img src="https://placehold.co/300x200/dbeafe/1f2937?text=Service+3" alt="Service 3">
+                    <img src="https://placehold.co/300x200/b0b0b0/ffffff?text=Digital+Marketing+Analytics" alt="Image of data analytics charts, representing digital marketing.">
                     <div class="service-details">
                         <div class="service-icon-small"><i class="fas fa-lightbulb"></i></div>
-                        <h4>RETINA READY</h4>
+                        <h4>DIGITAL MARKETING</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's collaborate and bring your ideas to life with our expert team.</p>
+            <button class="btn btn-outline">GET A FREE CONSULTATION</button>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Your Company. All Rights Reserved.</p>
@@ -137,7 +145,6 @@
     </footer>
 
     <script>
-        // Basic JavaScript for responsive navigation toggle (optional but good practice)
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
