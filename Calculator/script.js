@@ -1,21 +1,22 @@
-let display = document.getElementById('display');
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll("button");
 
-function append(value) {
-  display.value += value;
-}
+let currentValue = "";
 
-function clearDisplay() {
-  display.value = '';
-}
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const value = btn.textContent;
 
-function deleteLast() {
-  display.value = display.value.slice(0, -1);
-}
+    if (value === "=") {
+      try {
+        currentValue = eval(currentValue);
+      } catch {
+        currentValue = "Error";
+      }
+    } else {
+      currentValue += value;
+    }
 
-function calculate() {
-  try {
-    display.value = eval(display.value);
-  } catch {
-    display.value = 'Error';
-  }
-}
+    display.value = currentValue;
+  });
+});
