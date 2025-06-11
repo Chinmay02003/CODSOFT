@@ -1,8 +1,7 @@
-/* Universal Styles */
 :root {
-    --primary-color: #3b82f6; /* Blue */
-    --secondary-color: #ef4444; /* Red */
-    --accent-gradient: linear-gradient(to right, #f97316, #ec4899); /* Orange to Pink */
+    --primary-color: #3b82f6;
+    --secondary-color: #ef4444;
+    --accent-gradient: linear-gradient(to right, #f97316, #ec4899);
     --dark-text: #1e293b;
     --light-text: #f8fafc;
     --gray-bg: #f0f2f5;
@@ -71,7 +70,7 @@ ul {
     color: var(--light-text);
     border: none;
     padding: 0.75rem 2rem;
-    border-radius: 9999px; /* Pill shape */
+    border-radius: 9999px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
@@ -85,21 +84,20 @@ ul {
     color: var(--light-text);
     border: 2px solid var(--light-text);
     padding: 0.75rem 2rem;
-    border-radius: 9999px; /* Pill shape */
+    border-radius: 9999px;
 }
 
 .btn-outline:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Header Section */
 .header {
     background-color: var(--light-text);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .top-bar {
-    background-color: var(--dark-text); /* Dark bar at the very top */
+    background-color: var(--dark-text);
     color: var(--light-text);
     font-size: 0.875rem;
     padding: 0.5rem 0;
@@ -109,7 +107,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap;
 }
 
 .contact-info span,
@@ -142,7 +140,7 @@ ul {
 }
 
 .logo img {
-    height: 35px; /* Adjust logo size */
+    height: 35px;
     width: 35px;
     border-radius: 50%;
 }
@@ -180,15 +178,14 @@ ul {
 }
 
 .menu-toggle {
-    display: none; /* Hidden by default on larger screens */
+    display: none;
     font-size: 1.75rem;
     cursor: pointer;
     color: var(--dark-text);
 }
 
-/* Hero Section */
 .hero-section {
-    background: url('https://placehold.co/1920x800/2f3a47/ffffff?text=Background+Image') no-repeat center center/cover;
+    background: url('https://placehold.co/1920x800/3d3d3d/ffffff?text=Digital+Marketing+Background') no-repeat center center/cover;
     color: var(--light-text);
     text-align: left;
     padding: 8rem 0;
@@ -203,7 +200,7 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.5);
     z-index: -1;
 }
 
@@ -237,7 +234,6 @@ ul {
     margin-right: 1.5rem;
 }
 
-/* Features Section */
 .features-section {
     background-image: var(--accent-gradient);
     color: var(--light-text);
@@ -270,7 +266,6 @@ ul {
     margin-bottom: 0.75rem;
 }
 
-/* About Us Section */
 .about-section {
     padding: 6rem 0;
     background-color: var(--gray-bg);
@@ -285,7 +280,7 @@ ul {
 
 .about-text {
     flex: 1;
-    min-width: 300px; /* Minimum width before wrapping */
+    min-width: 300px;
 }
 
 .about-text h2 {
@@ -310,7 +305,7 @@ ul {
 
 .about-image {
     flex: 1;
-    min-width: 300px; /* Minimum width before wrapping */
+    min-width: 300px;
     text-align: center;
 }
 
@@ -321,7 +316,49 @@ ul {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* Our Services Section */
+.testimonial-section {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.testimonial-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-quote {
+    font-size: 2.2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+.testimonial-quote::before,
+.testimonial-quote::after {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.3);
+    top: -10px;
+}
+
+.testimonial-quote::before {
+    left: -20px;
+}
+
+.testimonial-quote::after {
+    right: -20px;
+}
+
+.testimonial-author {
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
 .services-section {
     padding: 6rem 0;
     background-color: var(--light-text);
@@ -377,7 +414,7 @@ ul {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    flex-shrink: 0;
 }
 
 .service-details h4 {
@@ -386,7 +423,26 @@ ul {
     margin-bottom: 0;
 }
 
-/* Footer Section */
+.cta-section {
+    background-image: var(--accent-gradient);
+    color: var(--light-text);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .footer {
     background-color: var(--dark-text);
     color: var(--light-text);
@@ -395,10 +451,17 @@ ul {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .hero-content h2 {
         font-size: 3rem;
+    }
+
+    .testimonial-quote {
+        font-size: 1.8rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2.2rem;
     }
 }
 
@@ -415,7 +478,7 @@ ul {
     }
 
     .nav-links {
-        display: none; /* Hide by default on small screens */
+        display: none;
         flex-direction: column;
         width: 100%;
         text-align: center;
@@ -424,7 +487,7 @@ ul {
     }
 
     .nav-links.active {
-        display: flex; /* Show when active */
+        display: flex;
     }
 
     .nav-links li {
@@ -432,19 +495,19 @@ ul {
     }
 
     .nav-links li:last-child {
-        margin-left: 0; /* Remove extra margin on smaller screens */
+        margin-left: 0;
     }
 
     .menu-toggle {
-        display: block; /* Show hamburger icon */
-        order: 1; /* Place it at the beginning */
+        display: block;
+        order: 1;
         width: 100%;
         text-align: right;
-        margin-bottom: -2rem; /* Pull up to align with logo */
+        margin-bottom: -2rem;
     }
 
     .logo {
-        order: 2; /* Place logo after toggle for better alignment */
+        order: 2;
         width: 100%;
         justify-content: center;
     }
@@ -481,7 +544,16 @@ ul {
     }
 
     .services-grid {
-        grid-template-columns: 1fr; /* Stack services on small screens */
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-quote {
+        font-size: 1.5rem;
+    }
+
+    .testimonial-quote::before,
+    .testimonial-quote::after {
+        font-size: 3rem;
     }
 }
 
@@ -496,5 +568,9 @@ ul {
 
     .services-section h2 {
         font-size: 2rem;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
     }
 }
