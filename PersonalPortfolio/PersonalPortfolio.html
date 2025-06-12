@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #6b7280;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #374151;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #111827;
+      outline: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 0.75rem;
+      object-fit: cover;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* HEADER and NAVIGATION */
+    header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      max-width: 1200px;
+      padding: 0 20px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 28px;
+      color: #111827;
+      user-select: none;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      background-color: #e5e7eb;
+      color: #111827;
+      outline-offset: 2px;
+    }
+    .cta-button {
+      background-color: #111827;
+      color: #f9fafb;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover,
+    .cta-button:focus {
+      background-color: #374151;
+      outline-offset: 2px;
+    }
+
+    /* Mobile nav toggle */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: #111827;
+      font-size: 28px;
+      user-select: none;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .mobile-toggle:hover,
+    .mobile-toggle:focus {
+      color: #374151;
+      outline: none;
+    }
+
+    /* Mobile menu */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #f9fafb;
+      box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
+      border-radius: 12px;
+      margin: 12px 20px;
+      padding: 16px 20px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 220px;
+      z-index: 999;
+    }
+    .mobile-nav a {
+      padding: 12px 8px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #374151;
+      border-radius: 8px;
+    }
+    .mobile-nav a:not(:last-child) {
+      margin-bottom: 12px;
+    }
+    .mobile-nav a:hover,
+    .mobile-nav a:focus {
+      background-color: #e5e7eb;
+      color: #111827;
+      outline-offset: 2px;
+    }
+
+    /* SECTION SPACING */
+    section {
+      padding-top: 64px;
+      padding-bottom: 80px;
+    }
+    h2.section-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 40px;
+      user-select: none;
+    }
+
+    /* ABOUT SECTION */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-image {
+      flex: 0 0 280px;
+      max-width: 280px;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.08);
+    }
+    .about-text {
+      flex: 1 1 380px;
+      color: #4b5563;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    /* SKILLS SECTION */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      max-width: 900px;
+    }
+    .skill-item {
+      background: #f3f4f6;
+      color: #374151;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 16px;
+      font-size: 16px;
+      user-select: none;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.08);
+      transition: background-color 0.3s ease;
+    }
+    .skill-item:hover,
+    .skill-item:focus {
+      background-color: #e5e7eb;
+      outline: none;
+    }
+
+    /* PROJECTS SECTION */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+    }
+    .project-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .project-card:hover,
+    .project-card:focus-within {
+      box-shadow: 0 14px 34px rgb(0 0 0 / 0.1);
+      transform: translateY(-4px);
+      outline: none;
+    }
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .project-content {
+      padding: 20px 24px;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-weight: 700;
+      font-size: 22px;
+      color: #111827;
+      margin-bottom: 12px;
+      user-select: text;
+    }
+    .project-description {
+      color: #4b5563;
+      font-size: 16px;
+      flex-grow: 1;
+      user-select: text;
+    }
+
+    /* RESUME SECTION */
+    .resume-container {
+      max-width: 300px;
+    }
+    .resume-link {
+      display: inline-block;
+      background-color: #111827;
+      color: #f9fafb;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .resume-link:hover,
+    .resume-link:focus {
+      background-color: #374151;
+      outline-offset: 2px;
+    }
+
+    /* CONTACT SECTION */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 400px;
+      font-weight: 600;
+    }
+    .contact-item {
+      color: #374151;
+      font-size: 18px;
+      user-select: text;
+    }
+    .contact-label {
+      font-weight: 700;
+      color: #111827;
+      margin-right: 8px;
+      user-select: none;
+    }
+    .contact-link {
+      color: #1d4ed8;
+      font-weight: normal;
+    }
+    .contact-link:hover,
+    .contact-link:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #f3f4f6;
+      color: #6b7280;
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        gap: 32px;
+      }
+      nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .mobile-nav.show {
+        display: flex;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-list {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container container" role="banner">
+      <div class="logo" tabindex="0">CHINMAY KUMAR BEHERA</div>
+      <nav role="navigation" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button aria-label="Toggle menu" class="mobile-toggle" aria-expanded="false">&#9776;</button>
+    </div>
+    <div class="mobile-nav" aria-label="Mobile navigation" role="navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container" tabindex="-1" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title">About Me</h2>
+      <div class="about-content">
+        <img src="D:\New folder (4)\PP1.jpg" alt="Professional portrait photo of yourself in a clean studio setting, wearing business casual attire, smiling and approachable" class="about-image" />
+        <div class="about-text">
+          <p>Hello! I am a passionate web developer with experience crafting clean, intuitive, and accessible web applications. My expertise lies in HTML, CSS, and JavaScript, creating responsive designs that delight users across devices. I enjoy solving challenges with elegant code and continuously learning new technologies to enhance user experience. Let's build something great together.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container" tabindex="-1" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-title">Skills</h2>
+      <div class="skills-list" role="list" aria-label="List of key skills">
+        <span class="skill-item" role="listitem" tabindex="0">HTML5</span>
+        <span class="skill-item" role="listitem" tabindex="0">CSS3</span>
+        <span class="skill-item" role="listitem" tabindex="0">JavaScript (ES6+)</span>
+        <span class="skill-item" role="listitem" tabindex="0">Responsive Design</span>
+        <span class="skill-item" role="listitem" tabindex="0">Accessibility (a11y)</span>
+        <span class="skill-item" role="listitem" tabindex="0">Git & Version Control</span>
+        <span class="skill-item" role="listitem" tabindex="0">React Basics</span>
+        <span class="skill-item" role="listitem" tabindex="0">Node.js Fundamentals</span>
+      </div>
+    </section>
+
+    <section id="projects" class="container" tabindex="-1" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" tabindex="0" aria-label="Project: Portfolio Website">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ba92d1c5-9681-46a1-bbf5-16f1107653f8.png" alt="Screenshot of a modern personal portfolio website showing a clean design with navigation and project cards" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-description">A clean and responsive personal portfolio website demonstrating modern HTML, CSS, and JavaScript best practices, including smooth navigation and accessible components.</p>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" aria-label="Project: Todo List App">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3fc42bda-60aa-4aa1-8aa5-1bedd594ddf9.png" alt="Screenshot of a minimalist todo list app interface showing tasks with checkboxes and filtering options" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Todo List App</h3>
+            <p class="project-description">A functional and user-friendly todo list application built with JavaScript, featuring task creation, editing, completion toggling, and dynamic filtering for productivity.</p>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" aria-label="Project: Weather Dashboard">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ccdc8acb-d08b-4b42-8c64-cd4d2993c1e8.png" alt="Screenshot of a weather dashboard showing current weather and 5-day forecast with icons and temperature graphs" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Weather Dashboard</h3>
+            <p class="project-description">An interactive weather dashboard fetching live data from an API to display current conditions and weekly forecasts with clean, readable visuals and animations.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume" class="container" tabindex="-1" aria-labelledby="resume-heading">
+      <h2 id="resume-heading" class="section-title">Resume</h2>
+      <div class="resume-container">
+        <a href="https://drive.google.com/file/d/15kAsCd82kEWYqZpb_qRaULxeUPxGeCRL/view?usp=drive_link" class="resume-link" download="CHINMAYKUMARBEHERA_Resume.pdf" aria-label="Download PDF resume">Download Resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="contact" class="container" tabindex="-1" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="section-title">Contact</h2>
+      <div class="contact-list" role="list">
+        <div class="contact-item" role="listitem">
+          <span class="contact-label">Email:</span>
+          <a href="mailto:youremail@example.com" class="contact-link">chinmaybehera189@gmail.com</a>
+        </div>
+        <div class="contact-item" role="listitem">
+          <span class="contact-label">Phone:</span>
+          <a href="tel:+1234567890" class="contact-link">+1 (234) 567-890</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 CHINMAY KUMAR BEHERA. All rights reserved.
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggleBtn = document.querySelector('.mobile-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    toggleBtn.addEventListener('click', () => {
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
+      toggleBtn.setAttribute('aria-expanded', !expanded);
+      mobileNav.classList.toggle('show');
+    });
+
+    // Close mobile menu on nav link click for accessibility
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('show');
+        toggleBtn.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+</body>
+</html>
